@@ -23,7 +23,7 @@ class ApplicationsController < ApplicationController
   
   def student_speaker_competition
     #@application = Application.new
-    names = ["Jonh Gonzalez", "Natalia Khosla", "Colton Jang"]
+    names = ["John Gonzalez", "Natalia Khosla", "Colton Jang"]
     @winners = StudentSpeaker.where("name in (?)", names)
     #@winners = StudentSpeaker.order("-votes_count").first(3)
     @time_left = Time.parse(ENV['COMPETITION_END']) - Time.now
