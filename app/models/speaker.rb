@@ -9,13 +9,12 @@ class Speaker < ActiveRecord::Base
           :bucket => ENV['S3_BUCKET_NAME']
         }
   
+  attr_accessible :name, :email, :thumbnail, :event_id, :short_bio
   attr_accessor :password, :password_confirmation
 
   before_create :generate_password   
 
   validates_presence_of :name  
-  validates_presence_of :email 
-  validates_uniqueness_of :email
 
   belongs_to :event
   belongs_to :list
@@ -69,7 +68,7 @@ class Speaker < ActiveRecord::Base
     return (complete / length).to_s + "%"
   end
   
-  def as_json
+  def as_json(options = {})
     {
       "id" => id,
       "name" => name,

@@ -25,6 +25,7 @@ gem 'jquery-ui-rails'
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'mechanize'
+gem 'font-awesome-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,0 +1,303 @@
+//Mixins
+@import "mixins";
+
+// Variables
+$nav-height: 150px;
+$header-height: 80px;
+$max-z: 10;
+
+#footnotes {
+    
+  .superscript {
+    font-size: 35px;
+    @include HN-Light;
+  }
+  
+  .footnotes-header {
+    height: $header-height;
+    z-index: $max-z;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    border-bottom: 1px solid #eee;
+    
+    #footnotes-logo {
+      display: inline-block;
+      border-left: 1px solid #eee;
+      border-right: 1px solid #eee;
+      height: $header-height;
+      padding: 20px;
+      box-sizing: border-box;
+      float: left;
+      
+      img {
+        height: 100%;
+      }
+      
+      &:hover {
+        background: #fafafa;
+      }
+    }
+    
+    .open-links {
+      display: none;
+      
+      #footnotes-tagline {
+        @include HN-Light;
+        height: 80px;
+        display: inline-block;
+        vertical-align: top;
+        line-height: 80px;
+        padding: 0 20px;
+        font-size: 25px;
+      }
+      
+      #ticket {
+        border: 2px solid darken(red, 10%);
+        color: darken(red, 10%);
+        text-decoration: none;
+        
+        &:hover {
+          color: red;
+          border-color: red;
+        };
+      }
+    }
+    
+    .left-button {
+      float: right;
+      font-size: 15px;
+      line-height: 40px;
+      margin: 20px 0;
+      border-radius: 10px;
+      padding: 0 20px;
+      cursor: pointer;
+      @include transition(0.3s);
+      @include HN-Regular;
+    }
+    
+    #skip {
+      border: 2px solid #eee;
+      color: #777;
+      
+      &:hover {
+        color: #333;
+        border: 2px solid #dadada;
+      }
+    }
+  }
+  
+  #footnotes-modal {
+    position: fixed;
+    z-index: $max-z - 1;
+    top: 100%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    @include transition(0.4s);
+    
+    .nav {
+      background: white;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      height: 50px;
+      width: 100%;
+      
+      .wrapper {
+        padding: 0;
+        
+        h4 {
+          float: left;
+          @include HN-Bold;
+          font-size: 20px;
+          line-height: 50px;
+          margin: 0;
+          
+          span {
+            @include HN-Light;
+          }
+        }
+        
+        #close-modal {
+          float: right;
+          background: #eee;
+          border: 1px solid #dadada;
+          margin: 10px 0;
+          border-radius: 15px;
+          height: 30px;
+          width: 30px;
+          outline: none;
+          cursor: pointer;
+        }
+      }
+    }
+    
+    img {
+      border: 1px solid #dadada;
+    }
+    
+    td {
+      padding-right: 30px;
+      @include HN-Light;
+      font-size: 16px;
+      line-height: 28px;
+      vertical-align: top;
+    }
+    
+    &.open {
+      top: $header-height;
+    }
+    
+    .wrapper {
+      padding-top: 30px;
+    }
+  }
+  
+  .footnotes-fixed {
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    
+    .wrapper {
+      margin-top: $header-height;
+      padding-top: 30px;
+    }
+    
+    #text {
+      font-size: 50px;
+      line-height: 80px;
+      font-family: georgia;
+    }
+  }
+  
+  $content-padding: 40px;
+  $break-height: 250px;
+  .footnotes-content {
+    z-index: $max-z - 2;
+    position: fixed;
+    overflow: scroll;
+    height: 100%;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    @include transition(1s);
+    box-sizing: border-box;
+    
+    .panel {
+      width: 100%;
+      padding: $content-padding/1.5 0;
+      background: white;
+    }
+    
+    #details {
+      
+      .background {
+        width: 100%;
+        height: 100%;
+        background-image: url('/assets/ted_bg.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 40px 0;
+      }
+      
+      th,
+      td {
+        color: white;
+        text-align: left;
+      }
+      
+      th {
+        font-size: 15px;
+        line-height: 40px;
+        text-transform: uppercase;
+        @include HN-Regular;
+      }
+      
+      td {
+        font-size: 25px;
+        line-height: 35px;
+        @include HN-Light;
+        padding-right: 50px;
+        
+        &.primary {
+          font-size: 35px;
+          line-height: 45px;
+        }
+      }
+    }
+    
+    .wrapper {
+      min-height: 0;
+    }
+    
+    &.open {
+      top: 0;
+      padding-top: $header-height + $content-padding/2;
+    }
+    
+    h1 {
+      @include HN-Light;
+      font-size: 40px;
+      line-height: 50px;
+      margin-top: 0;
+    }
+    
+    h5 {
+      @include HN-Light;
+      font-size: 20px;
+      line-height: 35px;
+      margin: 0;
+    }
+    
+    $speaker-margin: 20px;
+    #speakers {
+      .footnotes-speaker {
+        width: (1000px - (2 * $speaker-margin))/3;
+        margin-right: $speaker-margin;
+        margin-bottom: $speaker-margin + 10px;
+        height: auto;
+        float: left;
+        box-sizing: border-box;
+        padding: 5px;
+        border: 1px solid #eee;
+        cursor: pointer;
+        
+        &:hover {
+          border-color: #dadada;
+        }
+        
+        .name {
+          @include HN-Bold;
+          font-size: 18px;
+          line-height: 25px;
+          padding-bottom: 5px;
+        }
+        
+        .image {
+          width: 100%;
+          height: 200px;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+        
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  
+  .footnotes-footer {
+    clear: both;
+    height: 100px;
+    width: 100%;
+  }
+}

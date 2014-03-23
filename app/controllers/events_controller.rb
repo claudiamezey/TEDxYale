@@ -149,12 +149,18 @@ class EventsController < ApplicationController
   end
   
   def conference_speakers
-    event = Event.where(:paralink => "2013").first
+    event = Event.where(:paralink => params[:year]).first
     speakers = event.speakers.shuffle
     render json: speakers.as_json
   end
   
   def current_salon
+  end
+  
+  def footnotes
+    event = Event.where(paralink: "2014").first
+    redirect_to root_url if !event
+    @speakers = event.speakers.shuffle
   end
   
 end
