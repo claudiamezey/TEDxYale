@@ -53,7 +53,6 @@ class EventsController < ApplicationController
   
   def new
     @event = Event.new
-    logger.debug "New View"
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @event }
@@ -62,7 +61,6 @@ class EventsController < ApplicationController
   
   def create
     @event = Event.new(params[:event])
-    logger.debug "The object is creating"
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
