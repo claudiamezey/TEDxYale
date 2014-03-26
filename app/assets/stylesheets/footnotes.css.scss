@@ -299,5 +299,30 @@ $max-z: 10;
     clear: both;
     height: 100px;
     width: 100%;
+    padding: 20px 0;
+    
+    .footer-ticket {
+      padding: 30px 0;
+      border-top: 1px solid #dadada;
+      text-align: center;
+      
+      a {
+        @include HN-Light;
+        background: transparent;
+        display: inline-block;
+        border-radius: 5px;
+        padding: 20px 30px;
+        font-size: 20px;
+        border: 2px solid darken(red, 10%);
+        color: darken(red, 10%);
+        text-decoration: none;
+        cursor: pointer;
+        
+        &:hover {
+          color: red;
+          border-color: red;
+        }
+      }
+    }
   }
 }
