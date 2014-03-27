@@ -1,7 +1,7 @@
 .banner
   .banner-bg
-    %video(autoplay loop="loop" id="video-background" width="100%")
-      %source(src="" type="video/mp4")
+    - @speakers.each do |speaker|
+      .speaker-bg(style="background-image: url(#{speaker.thumbnail.url(:large)})")
   %a{href: "/2014"}
     .banner-text
       %h1 03.29.14
