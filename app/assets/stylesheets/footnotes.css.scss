@@ -295,6 +295,33 @@ $max-z: 10;
     }
   }
   
+  .footnotes-sponsors {
+    clear: both;
+    width: 100%;
+    padding: 40px 0;
+    
+    #sponsors {
+      height: 100px;
+    }
+    
+    .footnotes-sponsor {
+      @include calc(width, "25% - 60px");
+      margin: 0 30px;
+      float: left;
+      height: 100px;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.8;
+      cursor: pointer;
+      @include transition(0.2s);
+      
+      &:hover {
+        opacity: 1;
+      };
+    }
+  }
+  
   .footnotes-footer {
     clear: both;
     height: 100px;
