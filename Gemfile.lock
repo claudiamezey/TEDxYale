@@ -73,6 +73,8 @@ GEM
     execjs (2.0.1)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
+    font-awesome-rails (4.0.3.1)
+      railties (>= 3.2, < 5.0)
     haml (4.0.3)
       tilt
     hashie (2.0.5)
@@ -231,6 +233,7 @@ DEPENDENCIES
   bcrypt-ruby
   coffee-rails
   dropbox
+  font-awesome-rails
   haml
   heroku
   jquery-rails

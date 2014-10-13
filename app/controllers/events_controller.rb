@@ -13,20 +13,21 @@ class EventsController < ApplicationController
   end
   
   def root
-    diff = Time.parse(ENV['COMPETITION_END']) - Time.now
-    @seconds_left = diff
-    days = (diff / (60 * 60 * 24)).floor
-    diff -= days * (60 * 60 * 24)
-    hours = (diff / (60 * 60)).floor
-    diff -= hours * (60 * 60)
-    minutes = (diff / 60).floor
-    seconds = (diff - (minutes * 60)).floor
-    @time_left = [
-      days.to_s.rjust(2, '0'),
-      hours.to_s.rjust(2, '0'),
-      minutes.to_s.rjust(2, '0'),
-      seconds.to_s.rjust(2, '0')
-    ].join(":")
+    # diff = Time.parse(ENV['COMPETITION_END']) - Time.now
+    #     @seconds_left = diff
+    #     days = (diff / (60 * 60 * 24)).floor
+    #     diff -= days * (60 * 60 * 24)
+    #     hours = (diff / (60 * 60)).floor
+    #     diff -= hours * (60 * 60)
+    #     minutes = (diff / 60).floor
+    #     seconds = (diff - (minutes * 60)).floor
+    #     @time_left = [
+    #       days.to_s.rjust(2, '0'),
+    #       hours.to_s.rjust(2, '0'),
+    #       minutes.to_s.rjust(2, '0'),
+    #       seconds.to_s.rjust(2, '0')
+    #     ].join(":")
+    # @speakers = Event.find_by(paralink: "2014").speakers.shuffle.first(18)
   end
   
   def index
@@ -53,7 +54,6 @@ class EventsController < ApplicationController
   
   def new
     @event = Event.new
-    logger.debug "New View"
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @event }
@@ -62,7 +62,6 @@ class EventsController < ApplicationController
   
   def create
     @event = Event.new(params[:event])
-    logger.debug "The object is creating"
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -149,12 +148,18 @@ class EventsController < ApplicationController
   end
   
   def conference_speakers
-    event = Event.where(:paralink => "2013").first
+    event = Event.where(:paralink => params[:year]).first
     speakers = event.speakers.shuffle
     render json: speakers.as_json
   end
   
   def current_salon
+  end
+  
+  def footnotes
+    # event = Event.where(paralink: "2014").first
+    # redirect_to root_url if !event
+    # @speakers = event.speakers.shuffle
   end
   
 end

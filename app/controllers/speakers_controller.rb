@@ -44,7 +44,11 @@ class SpeakersController < ApplicationController
     end
     respond_to do |format|
       if @speaker.update_attributes(params[:speaker])
-        format.html { redirect_to "/speaker", notice: 'Your profile was updated.' }
+        if !current_speaker
+          format.html { redirect_to "/admin/speakers" }
+        else
+          format.html { redirect_to "/speaker", notice: 'Your profile was updated.' }
+        end
         format.json { head :no_content }
       else
         format.html { render action: "personal" }

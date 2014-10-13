@@ -5,7 +5,7 @@
     %p Email
     %p= f.text_field :email
     %p Bio
-    %p= f.text_area :bio
+    %p= f.text_area :short_bio
     %p Event
     %p= f.select :event_id, options_from_collection_for_select(@events, :id, :name), :include_blank => true
     %p Twitter Link

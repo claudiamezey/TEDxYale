@@ -106,10 +106,10 @@ TEDxYale::Application.routes.draw do
   get "/voting_data", to: "student_speakers#voting_data"
   get "/early_bird", to: "student_speakers#early_bird"
   get "/process_stripe", to: "student_speakers#process_stripe"
-  get "/events/2013/speakers", to: "events#conference_speakers"
+  get "/events/:year/speakers", to: "events#conference_speakers"
   
   # 2014
-  get "/2014", to: "applications#student_speaker_competition"
+  get "/2014", to: "events#footnotes"
   get "/student_speaker_competition", to: "applications#student_speaker_competition"
   post "/email_nomination/:id", to: "applications#email_nomination", as: "email_nomination"
   get "/student_speaker_leaders", to: "student_speakers#leaders"
