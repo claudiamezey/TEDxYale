@@ -261,6 +261,10 @@ $panel-diff: 50px;
     width: 100%;
     background: black;
     overflow: hidden;
+    background-image: image-url("compbg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
     
     &.winners {
       background: #E60000;
@@ -432,19 +436,21 @@ $panel-diff: 50px;
       }
       
       input[type=submit] {
+        margin-left: 6em;
         width: auto;
-        border: none;
+        border: 2px solid;
         border-radius: 10px;
-        font-size: 2.5em;
-        line-height: 1em;
-        padding: 20px;
-        color: white;
+        font-size: 2em;
+        line-height: 30px;
+        padding: 15px;
+        color: #E60000;
         cursor: pointer;
-        background: red;
+        background: white;
         
         &:hover,
         &:focus {
           background: #E60000;
+          color: white;
         }
         
         &:active {

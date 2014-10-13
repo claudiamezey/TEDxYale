@@ -1,9 +1,95 @@
 <% content_for :title, "TEDxYale Student Speaker Competition" %>
 
-<% if @time_left < 0 %>
-  <%= render "closed" %>
-<% elsif current_user %>
-  <%= render "voting" %>
-<% else %>
-  <%= render "info" %>
-<% end %>
+<div id="student-speaker-competition">
+  <div class="background">
+    <div class="wrapper">
+      <div class="hover">
+        <h1>Student Speaker Competition 2015</h1>
+        <p>The Student Speaker Competition determines the 5-6 student speakers who represent the current Yale student body at our annual TEDxYale conference. Last year, our student speakers ended up giving some of the most convincing and moving talks at the event.</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="main wrapper">    
+    <h2>How it works</h2>
+    <p>The competition is made up of three rounds. The first round is for anyone to participate in and involves a 3 minute summary of your TED talk. The first round is given in front of the TEDxYale team. For the second round, our team selects the 8-10 best talks from the first round, and those students perform in front of our TEDxYale team and members. The final round is filmed, and we will be uploading your talks to our website for popular voting.</p>
+
+    <h2>FAQ</h2>
+
+    <h3>How strict is the three minute time limit?</h3>
+    <p>Your first round audition should provide us with a good idea for what you would like to talk about and how you are as a presenter. If for some reason you feel three minutes is not a sufficiently long period of time, we will not cut you off, but we would wonder why you weren’t able to summarize.</p>
+
+    <h3>If I’m selected, what happens between now and the conference?</h3>
+    <p>First, congratulations are in order! But second, we will provide speaker training opportunities with a collection of Yale School of Drama students, professors, and previous TED speakers. Our curators and speaker team will also work with you to refine the content of your talk.</p>
+
+    <h3>Is a PowerPoint or visual aid required?</h3>
+    <p>No, visual aid is often constructive, but it is by no means mandatory. We encourage it for talks with significant amounts of factual content or more science-oriented presentations, but if you can pull it off without it, all power to you.</p>
+
+    <h3>Can I apply as a joint talk with another student?</h3>
+    <p>Absolutely, we’ve had joint talks in the past. Collaborating on a TED talk can be both a great experience for you and a great result for the audience.</p>
+    <div class="buttons">
+      <button data-link="become_a_speaker" data-show=".speaker-field" data-hide=".nominate-field">Apply to speak</button>
+      <button data-link="nominate_a_friend" data-show=".nominate-field" data-hide=".speaker-field">Nominate a friend</button>
+    </div>
+  </div>
+  
+  <div class="message" style="display: none">
+    <div class="wrapper"></div>
+  </div>
+  
+  <div class="secondary" hidden>
+  
+    <div class="comp-application wrapper">  
+      <%= form_for @application, remote: true, format: :json do |f| %>
+        <%= f.hidden_field :application_cycle_id, value: @cycle, id: "cycle-id" %>
+        
+        <p>* Required fields</p>
+
+        <div class="form-field">
+          <label>Full name*</label>
+          <%= f.text_field :name %>
+        </div>
+      
+        <div class="form-field">
+          <label>Email address*</label>
+          <%= f.text_field :email %>
+        </div>
+      
+        <div class="speaker-field">
+          <div class="form-field">
+            <label>Yale affiliation (college if applicable)*</label>
+            <%= f.text_field :affiliation %>
+          </div>
+        
+          <div class="form-field">
+            <label>Graduation year*</label>
+            <%= f.text_field :year %>
+          </div>
+        </div>
+      
+        <div class="form-field">
+          <div class="speaker-field">
+            <label>Briefly describe the content of your talk. This can be as simple as only the title.*</label>
+          </div>
+          <div class="nominate-field">
+            <label>Briefly describe why you are nominating this person.*</label>
+          </div>
+          <%= f.text_area :bio %>
+        </div>
+      
+        <div class="form-field">
+          <div class="speaker-field">
+            <%= f.submit "Apply to speak" %>
+          </div>
+          <div class="nominate-field">
+            <%= f.submit "Nominate a friend" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+  applicationCycleIds = [<%= @cycle.to_json %>, <%= @nominate_cycle.to_json %>]
+</script>

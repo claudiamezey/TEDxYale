@@ -60,7 +60,7 @@
 	  <a href="/" class="logo_link"><img src="/assets/tedxyale_logo_white.png" id="logo"/></a>
 		<% if current_user %>
 		  <% if current_admin %>
-			  <a class="header_item_link">
+			  <!-- <a class="header_item_link">
 		      <div class="header_item user">
 		        <div class='name'>
 		          <%= current_user.name %>
@@ -71,9 +71,9 @@
   			      <li><a href="/logout">Logout</a></li>
   			    </ul>
   			  </div>
-		    </a>
+		    </a> -->
 			<% else%>
-			  <a class="header_item_link">
+			  <!-- <a class="header_item_link">
 		      <div class="header_item user">
 		        <div class='name'>
 		          <%= current_user.name %>
@@ -82,10 +82,10 @@
   			      <li><a href="/logout">Logout</a></li>
   			    </ul>
   			  </div>
-		    </a>
+		    </a> -->
 			<% end %>
 		<% elsif current_speaker %>
-	    <a class="header_item_link">
+	    <!-- <a class="header_item_link">
 	      <div class="header_item user">
 	        <div class='name'>
 	          <%= current_speaker.name %>
@@ -95,14 +95,13 @@
 			      <li><a href="/logout">Logout</a></li>
 			    </ul>
 			  </div>
-	    </a>
+	    </a> -->
 		<% else %> 
 		<a href="/login" class="header_item_link"><div class="header_item login">LOGIN</div></a>
 		<% end %>
 		<a href="/about" class="header_item_link"><div class="header_item" id="item_events">ABOUT</div></a>
 		<a href="/tv" class="header_item_link"><div class="header_item" id="item_events">TV</div></a>
 		<a href="/events" class="header_item_link"><div class="header_item" id="item_events">EVENTS</div></a>
-		<a href="/2014" class="header_item_link"><div class="header_item" id="item_2013">2014</div></a>
 	</div>
 </div>
 <!--Header End-->

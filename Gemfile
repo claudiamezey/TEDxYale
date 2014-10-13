@@ -15,7 +15,6 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'thin'
 gem 'pg'
 gem 'haml'
 
