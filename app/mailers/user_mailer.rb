@@ -36,7 +36,7 @@ class UserMailer < ActionMailer::Base
   
   def student_nomination_email(app)
     @app = app
-    @curator = ["Mert Celebi", "Kimaya Abreu"][rand(0..1)]
+    @curator = ["Mert Celebi", "Kimaya Abreu"].shuffle.first
     email_with_name = "#{@app.name} <#{@app.email}>"
     from_address = "#{@curator} <curator@tedxyale.com"
     mail(from: from_address, to: email_with_name, subject: "You've been nominated")
