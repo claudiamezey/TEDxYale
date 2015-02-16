@@ -1,6 +1,6 @@
 <% content_for :title, "TEDxYale Student Speaker Competition" %>
 
-<div id="student-speaker-competition">
+<!-- <div id="student-speaker-competition">
   <div class="background">
     <div class="wrapper">
       <div class="hover">
@@ -88,8 +88,14 @@
       <% end %>
     </div>
   </div>
-</div>
+</div> -->
 
+<% if current_user%>
+  <%= render "voting" %>
+<% else %>
+  <%= render "info" %>
+<% end %>
+<!-- 
 <script>
   applicationCycleIds = [<%= @cycle.to_json %>, <%= @nominate_cycle.to_json %>]
-</script>
+</script> -->

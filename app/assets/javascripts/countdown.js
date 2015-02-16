@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   // set the date we're counting down to
-  var target_date = new Date("Feb 11, 2014 EST").getTime();
+  var target_date = new Date("Feb 27, 2015 EST").getTime();
 
   // variables for time units
   var days, hours, minutes, seconds, string;
