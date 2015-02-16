@@ -65,7 +65,7 @@ class StudentSpeakersController < ApplicationController
       user = User.create(:name => fb_user['name'], :email => fb_user['email'])
     end
     session[:user_id] = user.id
-    redirect_to "/2013"
+    redirect_to "/2015"
   end
   
   def vote
@@ -81,7 +81,7 @@ class StudentSpeakersController < ApplicationController
         render json: user, status: :unprocessable_entity
       end
     else
-      redirect_to "/2014"
+      redirect_to "/2015"
     end
   end
   
