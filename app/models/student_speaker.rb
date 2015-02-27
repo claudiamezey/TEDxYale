@@ -28,3 +28,4 @@ class StudentSpeaker < ActiveRecord::Base
   end
         
 end
+

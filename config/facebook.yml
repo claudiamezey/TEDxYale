@@ -1,7 +1,7 @@
 development:
-  app_id: '321791014603315'
-  secret_key: '84a49fd02383cdef3c3d6811ce971528'
-  callback_url: 'http://localhost:3000/2013'
+  app_id: '505812476202459'
+  secret_key: 'c88a7f1a9064d5a0f0fa29856b8349e4'
+  callback_url: 'http://localhost:3000/2015'
  
 production:
   app_id: '321791014603315'

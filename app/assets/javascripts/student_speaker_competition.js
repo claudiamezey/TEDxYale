@@ -1,18 +1,18 @@
 $(document).ready(function() {
   
   // Check hash
-  if (window.location.href.indexOf('#') > -1 && 
-        (window.location.href.indexOf('student_speaker_competition') > -1 ||
-        window.location.href.indexOf('2015') > -1)) {
-          
-      // Router
-      var hash = location.hash.substring(1);
-      if (hash == 'become_a_speaker') {
-        adjustHtml('.speaker-field', '.nominate-field', hash, 0);
-      } else {
-        adjustHtml('.nominate-field', '.speaker-field', hash, 0);
-      }
-    }
+  // if (window.location.href.indexOf('#') > -1 && 
+  //       (window.location.href.indexOf('student_speaker_competition') > -1 ||
+  //       window.location.href.indexOf('2014') > -1)) {
+  //         
+  //     // Router
+  //     var hash = location.hash.substring(1);
+  //     if (hash == 'become_a_speaker') {
+  //       adjustHtml('.speaker-field', '.nominate-field', hash, 0);
+  //     } else {
+  //       adjustHtml('.nominate-field', '.speaker-field', hash, 0);
+  //     }
+  //   }
   
   // Shows/hide correct elements
   // Changes hash
@@ -76,13 +76,12 @@ $(document).ready(function() {
   
   // Load video
   var sources = [
-    //"https://s3.amazonaws.com/TEDxYale/mp4s/cody.mp4",
+    "https://s3.amazonaws.com/TEDxYale/mp4s/cody.mp4",
     "https://s3.amazonaws.com/TEDxYale/mp4s/clemantine.mp4",
-    // "https://s3.amazonaws.com/TEDxYale/mp4s/eddy.mp4",
-    //"https://s3.amazonaws.com/TEDxYale/mp4s/sam.mp4",
-    // "https://s3.amazonaws.com/TEDxYale/mp4s/Frame1.mp4"
+    "https://s3.amazonaws.com/TEDxYale/mp4s/eddy.mp4",
+    "https://s3.amazonaws.com/TEDxYale/mp4s/sam.mp4",
+    "https://s3.amazonaws.com/TEDxYale/mp4s/dj.mp4"
   ];
-  
   
   var video = $('#video-background');
   if (video[0] && video[0].canPlayType && video[0].canPlayType('video/mp4')) {

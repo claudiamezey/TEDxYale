@@ -3,45 +3,45 @@ class User < ActiveRecord::Base
   attr_accessor :password
   
   before_save :encrypt_password    
-	
+  
   validates_presence_of :name  
   # only validate email if not logged in with fb
   validates_presence_of :email, if: "uid.nil?" 
   validates_uniqueness_of :email, if: "uid.nil?"
   
-	has_many :attendees
-	has_many :events, :through => :attendees
-	has_many :votes
-	belongs_to :list
-	
-	def votes_left
-	  votes = self.votes.count
-	  10 - votes
-	end
-	
-	def is_admin?
-	  if self.admin == 'a'
-	    true
-	  else
-	    false
-	  end
-	end
-	
-	def has_votes?
-	  votes = self.votes.count
-	  votes = 10 - votes
-	  if votes > 0
-	    true
-	  else
-	    false
-	  end
-	end
-	
+  has_many :attendees
+  has_many :events, :through => :attendees
+  has_many :votes
+  belongs_to :list
+  
+  def votes_left
+    votes = self.votes.count
+    10 - votes
+  end
+  
+  def is_admin?
+    if self.admin == 'a'
+      true
+    else
+      false
+    end
+  end
+  
+  def has_votes?
+    votes = self.votes.count
+    votes = 10 - votes
+    if votes > 0
+      true
+    else
+      false
+    end
+  end
+  
   def encrypt_password  
     if password.present?  
-  		self.password_salt = BCrypt::Engine.generate_salt
-  		self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)  
-  	end  
+      self.password_salt = BCrypt::Engine.generate_salt
+      self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)  
+    end  
   end 
    
   def self.authenticate(email, password)

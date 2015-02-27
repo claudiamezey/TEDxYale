@@ -92,10 +92,6 @@ $speaker-menu-height: 90px;
     line-height: $menu-height;
     font-size: $menu-height / 3;
     
-    &.timer {
-      color: red;
-    }
-    
     span {
       @include HN-Bold;
     }
@@ -163,10 +159,10 @@ $play-width: 40px;
       @include calc(top, "50% - (#{$play-height} / 2)");
       @include calc(left, "50% - (#{$play-width} / 2)");
       width: 0; 
-    	height: 0; 
-    	border-top: ($play-height / 2) solid transparent;
-    	border-bottom: ($play-height / 2) solid transparent;
-    	border-left: $play-width solid #fff;
+      height: 0; 
+      border-top: ($play-height / 2) solid transparent;
+      border-bottom: ($play-height / 2) solid transparent;
+      border-left: $play-width solid #fff;
     }
     
     .student-image {
@@ -273,7 +269,7 @@ $play-width: 40px;
   a.another {
     @include HN-Bold;
     background: -moz-linear-gradient(0% 100% 90deg, #E60000, #ff0000);
-	  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ff0000), to(#E60000));
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ff0000), to(#E60000));
     background: -moz-linear-gradient(0% 100% 90deg, #E60000, #ff0000);
     -pie-background: linear-gradient(#ff0000, #E60000);
     border-radius: 3px;
