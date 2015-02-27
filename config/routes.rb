@@ -109,7 +109,7 @@ TEDxYale::Application.routes.draw do
   get "/events/:year/speakers", to: "events#conference_speakers"
   
   # 2014
-  # get "/2014", to: "events#conference"
+  get "/2014", to: "events#conference"
   get "/2015", to: "applications#student_speaker_competition"
   get "/student_speaker_competition", to: "applications#student_speaker_competition"
   post "/email_nomination/:id", to: "applications#email_nomination", as: "email_nomination"
