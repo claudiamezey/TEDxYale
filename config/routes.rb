@@ -115,6 +115,9 @@ TEDxYale::Application.routes.draw do
   post "/email_nomination/:id", to: "applications#email_nomination", as: "email_nomination"
   get "/student_speaker_leaders", to: "student_speakers#leaders"
   
+  # 2015
+  get "/2015", to: "events#moment_of_impact"
+
   # Facebook
   get 'auth/:provider/callback', to: 'sessions#create_from_facebook'
   get 'auth/failure', to: redirect('/2014')
