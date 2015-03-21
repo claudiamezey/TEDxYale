@@ -18,7 +18,7 @@ class TEDxYale.Views.MomentOfImpact.IndexView extends Backbone.View
     @speakers = speakers
     @skipped = true
     @currentIndex = 0
-    # @typeSentence(0) # 0 represents zero index
+    @typeSentence(0) # 0 represents zero index
   
   typeSentence: =>
     text = @sentences[@currentIndex]
