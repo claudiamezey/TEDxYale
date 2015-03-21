@@ -10,18 +10,14 @@ class TEDxYale.Views.MomentOfImpact.IndexView extends Backbone.View
   el: 'body'
   
   sentences: [
-    "As we've organized TEDxYale year after year, we've observed that the most meaningful TED talks often present the simplest of stories.",
-    "Speakers don't focus on what they've done but what they've thought and felt.",
-    "This year's TEDxYale challenges our speakers to share an idea or story they haven't had an opportunity to share before.",
-    "We're calling it...",
-    "Exploring the Footnotes."
+    ""
   ]
   
   initialize: (speakers) ->
     $(@el).html(@template())
     @speakers = speakers
     @skipped = true
-    # @currentIndex = 0
+    @currentIndex = 0
     # @typeSentence(0) # 0 represents zero index
   
   typeSentence: =>
