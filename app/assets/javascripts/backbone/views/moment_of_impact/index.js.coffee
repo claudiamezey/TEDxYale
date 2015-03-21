@@ -66,6 +66,14 @@ class TEDxYale.Views.MomentOfImpact.IndexView extends Backbone.View
     "click .footnotes-speaker" : "openSpeaker"
     "click #close-modal" : "closeSpeaker"
   
+  skipIntro: ->
+    unless @skipped
+      @skipped = true
+      @currentIndex = @sentences.length
+      $('#text').fadeOut(500)
+      $('#skip').fadeOut(200)
+      _.delay(@render, 400)
+
   openSpeaker: (event) ->
     id = $(event.target).closest('.footnotes-speaker').data('id')
     speaker = @speakers.get(id)
