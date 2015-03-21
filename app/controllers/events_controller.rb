@@ -157,9 +157,9 @@ class EventsController < ApplicationController
   end
   
   def footnotes
-    # event = Event.where(paralink: "2014").first
-    # redirect_to root_url if !event
-    # @speakers = event.speakers.shuffle
+    event = Event.where(paralink: "2014").first
+    redirect_to root_url if !event
+    @speakers = event.speakers.shuffle
   end
 
   def moment_of_impact
