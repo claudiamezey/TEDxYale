@@ -7,9 +7,6 @@
         %td App ID
         %td= @application.id
       %tr
-        %td App Cycle
-        %td= link_to @application.application_cycle.name, @application.application_cycle
-      %tr
         %td Name
         %td= @application.name
       %tr
@@ -22,14 +19,20 @@
         %td Year
         %td= @application.year
       %tr
-        %td Major
-        %td= @application.major
+        %td Title of your TED Talk
+        %td= @application.title
       %tr
-        %td Hometown
-        %td= @application.hometown
-      %tr
-        %td About
+        %td Please give us a brief bio of yourself 
         %td= @application.bio
+      %tr
+        %td Please provide us with a description of your talk
+        %td= @application.description
+      %tr
+        %td What makes you qualified to give this talk? Why do you want to give this talk? 
+        %td= @application.qualification
+      %tr
+        %td What is your favorite TED talk? Why?
+        %td= @application.favorite
       %tr
         %td Submitted
         %td= @application.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%c")
