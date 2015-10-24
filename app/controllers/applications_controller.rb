@@ -38,6 +38,7 @@ class ApplicationsController < ApplicationController
     @application = Application.new(params[:application])
     respond_to do |format|
       if @application.save
+        UserMailer.student_nomination_email(@application).deliver if @application.nomination.present?
         format.html { redirect_to root_url, notice: 'Thank you for applying, #{@application.name}.' }
         format.json { render json: @application, status: :created, location: @application }
       else
@@ -63,7 +64,7 @@ class ApplicationsController < ApplicationController
   
   def email_nomination
     @app = Application.find(params[:id])
-    UserMailer.student_nomination_email(@app).deliver
+    UserMailer.student_nomination_email(@app).deliver_later
     @app.emailed = true
     @app.save
     redirect_to admin_competition_path

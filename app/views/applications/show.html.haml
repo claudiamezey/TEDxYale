@@ -34,6 +34,9 @@
         %td What is your favorite TED talk? Why?
         %td= @application.favorite
       %tr
+        %td Briefly describe why you are nominating this person
+        %td= @application.nomination
+      %tr
         %td Submitted
         %td= @application.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%c")
     

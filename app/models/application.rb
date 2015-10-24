@@ -1,7 +1,8 @@
 class Application < ActiveRecord::Base
   
   attr_accessible :name, :email, :bio, :affiliation, :year, 
-                  :major, :hometown, :application_cycle_id, :emailed
+                  :major, :hometown, :application_cycle_id, :emailed,
+                  :favorite, :description, :qualification, :title, :nomination
   
   belongs_to :application_cycle
   has_many :application_answers
