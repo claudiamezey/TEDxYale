@@ -110,12 +110,15 @@ TEDxYale::Application.routes.draw do
   
   # 2014
   get "/2014", to: "events#footnotes"
-  get "/student_speaker_competition", to: "applications#student_speaker_competition"
   post "/email_nomination/:id", to: "applications#email_nomination", as: "email_nomination"
   get "/student_speaker_leaders", to: "student_speakers#leaders"
   
   # 2015
   get "/2015", to: "events#moment_of_impact"
+
+  # 2016
+  get "/2016", to: "applications#student_speaker_competition"
+  get "/student_speaker_competition", to: "applications#student_speaker_competition"
 
   # Facebook
   get 'auth/:provider/callback', to: 'sessions#create_from_facebook'
