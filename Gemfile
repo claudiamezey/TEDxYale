@@ -24,7 +24,6 @@ gem 'jquery-ui-rails'
 gem 'sass-rails', '4.0.2'
 gem 'sprockets', '2.11.0'
 gem 'coffee-rails'
-gem 'mechanize'
 gem 'font-awesome-rails'
 
 # To use ActiveModel has_secure_password

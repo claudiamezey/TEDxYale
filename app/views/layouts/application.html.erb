@@ -72,37 +72,12 @@
   			    </ul>
   			  </div>
 		    </a>
-			<% else%>
-			  <!-- <a class="header_item_link">
-		      <div class="header_item user">
-		        <div class='name'>
-		          <%= current_user.name %>
-		        </div>
-		        <ul class="dropdown_menu">
-  			      <li><a href="/logout">Logout</a></li>
-  			    </ul>
-  			  </div>
-		    </a> -->
 			<% end %>
-		<% elsif current_speaker %>
-	    <!-- <a class="header_item_link">
-	      <div class="header_item user">
-	        <div class='name'>
-	          <%= current_speaker.name %>
-	        </div>
-	        <ul class="dropdown_menu">
-			      <li><a href="/speaker">Speaker Dashboard</a></li>
-			      <li><a href="/logout">Logout</a></li>
-			    </ul>
-			  </div>
-	    </a> -->
 		<% else %> 
-		<a href="/login" class="header_item_link"><div class="header_item login">LOGIN</div></a>
+		  <a href="/login" class="header_item_link"><div class="header_item login">LOGIN</div></a>
 		<% end %>
 		<a href="/about" class="header_item_link"><div class="header_item" id="item_events">ABOUT</div></a>
-		<a href="/tv" class="header_item_link"><div class="header_item" id="item_events">TV</div></a>
 		<a href="/events" class="header_item_link"><div class="header_item" id="item_events">EVENTS</div></a>
-    <a href="/2015" class="header_item_link"><div class="header_item" id="item_events">2015</div></a>
 	</div>
 </div>
 <!--Header End-->
@@ -120,7 +95,7 @@
     <div class="item_first">
       <a class="facebook" href="http://www.facebook.com/TEDxYale"><img src="/assets/facebook.png"/>Connect on Facebook</a>
       <a class="twitter" href="https://twitter.com/#!/TEDxYale"><img src="/assets/twitter.png"/>Follow on Twitter</a>
-      <p> © TEDxYale 2012</p>
+      <p> © TEDxYale 2015</p>
     </div>
     <div class="item">
       <div class="title">What is TEDx?<span>This independent TEDx event is operated under license from TED.</span></div>

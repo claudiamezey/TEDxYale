@@ -15,16 +15,16 @@
     .section.team
       %h4 Our Team
       .member
-        .image(style="background-image: url('/assets/ka.png')")
+        .image(style="background-image: url('/assets/cj.png')")
         .info
-          .name Kimaya Abreu
+          .name Caroline Jones
           .title Curator
       .member
-        .image(style="background-image: url('/assets/fmc.png')")
+        .image(style="background-image: url('/assets/ay.png')")
         .info
-          .name Feridun Mert Celebi
+          .name Asher Young
           .title Curator
-      - members = [['Alexander Cooley', '/assets/ac.png', 'Finance'], ['Patrick Demkowicz', '/assets/pd.png', 'Events'], ['Ale Estrada', '/assets/ale.png', 'Events'], ['Adam Erickson', '/assets/ae.png', 'Events'], ['Emma Fredwall', '/assets/ef.png', 'Graphic Design'], ['Irene Jiang', '/assets/ij.png', 'Speakers'], ['Caroline Jones', '/assets/cj.png', 'Events'], ['Zachary Cohen', '/assets/zc.png', 'Speakers'], ['Cody Pomeranz', '/assets/cp.png', 'Speakers, Former Speaker'], ['Evie Cai', '/assets/ec.png', 'Events'], ['Jesse Mander', '/assets/jm.png', 'Marketing'],['Bobby De La Rosa', '/assets/bdlr.png', 'Photographer'], ['Jacob Stein', '/assets/js.png', 'Communications'], ['Matt Stone', '/assets/ms.png', 'Finance'], ['Mercina Tillemann-Dick', '/assets/mtd.png', 'Speakers'], ['Ashesh Trivedi', '/assets/at.png', 'Events'], ['Olivier van Donselaar', '/assets/od.png', 'Marketing'], ['Eddy Wang', '/assets/ew.png', 'Speakers, Former Speaker'], ['Lia Weiner', '/assets/lw.png', 'Events'], ['Mohan Yin', '/assets/my.png', 'Graphic Design'], ['Asher Young', '/assets/ay.png', 'Speakers'], ['Jinchen Zhou', '/assets/jz.png', 'Speakers']]
+      - members = [['Frank Boudon', '/assets/Frank.JPG', 'Speakers'], ['Evie Cai', '/assets/ec.png', 'Events'], ['Tracy Chung', '/assets/Tracy.jpg', 'Speakers'], ['Zachary Cohen', '/assets/zc.png', 'Finance'], ['Patrick Demkowicz', '/assets/pd.png', 'Speakers'], ['Ale Estrada', '/assets/ale.png', 'Speakers'], ['Chunyang Ding', '/assets/Chunny.JPG', 'Finance'], ['Dan Gorodezky', '/assets/Dan.jpg', 'Marketing'], ['Irene Jiang', '/assets/ij.png', 'Speakers'], ['Shea Ketsdever', '/assets/Shea.png', 'Speakers'], ['Elizabeth Liu', '/assets/Elizabeth.jpg', 'Finance'], ['Claudia Mezey', '/assets/Claudia.jpg', 'Marketing'], ['Alexander Mutuc', '/assets/Alexander.jpg' ,'Events'], ['Ashesh Trivedi', '/assets/at.jpg', 'Events'], ['Olivier van Donselaar', '/assets/ov.jpg', 'Marketing'], ['Annique Wong', '/assets/Annique.jpg', 'Finance'], ['Rebecca Yan', '/assets/Rebecca.jpeg','Marketing'], ['Jinchen Zhou', '/assets/jz.png', 'Speakers']]
       -members.each do |m|
         .member
           .image(style="background-image: url('#{ m[1] }')")
@@ -87,6 +87,20 @@
           .twitter
             %img(src='/assets/twitter.png')
             %a(href='https://twitter.com/MikaylaRoseT' target="_blank") @MikaylaRoseT 
+      .member
+        .image
+          %img(src='/assets/ka.png')
+        .info
+          .name Kimaya Abreu
+          .title Former Curator
+      .member
+        .image(style="background-image: url('/assets/fmc.png')")
+        .info
+          .name Feridun Mert Celebi
+          .title Former Curator
+          .twitter
+            %img(src='/assets/twitter.png')
+            %a(href='https://twitter.com/fmertcelebi' target="_blank") @fmertcelebi 
       %div(style='clear:both')
     .section.partnership
       %h4 Partners

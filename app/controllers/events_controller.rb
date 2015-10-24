@@ -164,7 +164,6 @@ class EventsController < ApplicationController
 
   def moment_of_impact
     event = Event.where(paralink: "2015").first
-    p "#{event}"
     redirect_to root_url if !event
     @speakers = event.speakers.shuffle
   end
