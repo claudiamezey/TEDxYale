@@ -6,21 +6,21 @@
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "jquery", "scrollto", "application" %>
   <%= csrf_meta_tags %>
-  <meta property="og:title" content="<%= yield(:title).empty? ? "TEDxYale" : yield(:title) %>" /> 
+  <meta property="og:title" content="<%= yield(:title).empty? ? "TEDxYale" : yield(:title) %>" />
   <meta property="og:image" content="/assets/fb_logo.jpg" />
-  <meta property="og:description" content="Through events and multimedia, TEDxYale connect the world’s brightest minds with the world’s best stories." /> 
+  <meta property="og:description" content="Through events and multimedia, TEDxYale connect the world’s brightest minds with the world’s best stories." />
   <script type="text/javascript">
 
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-27010513-1']);
 	  _gaq.push(['_trackPageview']);
-	
+
 	  (function() {
 		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();
-	
+
   </script>
 </head>
 <body>
@@ -42,8 +42,8 @@
   };
 
   // Load the SDK's source Asynchronously
-  // Note that the debug version is being actively developed and might 
-  // contain some type checks that are overly strict. 
+  // Note that the debug version is being actively developed and might
+  // contain some type checks that are overly strict.
   // Please report such bugs using the bugs tool.
   (function(d, debug){
      var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
@@ -73,12 +73,12 @@
   			  </div>
 		    </a>
 			<% end %>
-		<% else %> 
+		<% else %>
 		  <a href="/login" class="header_item_link"><div class="header_item login">LOGIN</div></a>
 		<% end %>
 		<a href="/about" class="header_item_link"><div class="header_item" id="item_events">ABOUT</div></a>
 		<a href="/events" class="header_item_link"><div class="header_item" id="item_events">EVENTS</div></a>
-    <!-- <a href="/2016" class="header_item_link"><div class="header_item" id="item_events">2016</div></a> -->
+    <a href="/2016" class="header_item_link"><div class="header_item" id="item_events">2016</div></a>
 	</div>
 </div>
 <!--Header End-->
