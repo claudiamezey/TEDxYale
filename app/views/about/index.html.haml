@@ -15,6 +15,11 @@
     .section.team
       %h4 Our Team
       .member
+        .image(style="background-image: url('/assets/pb.jpg')")
+        .info
+          .name Paul Bloom
+          .title Curator
+      .member
         .image(style="background-image: url('/assets/cj.png')")
         .info
           .name Caroline Jones
@@ -23,11 +28,6 @@
         .image(style="background-image: url('/assets/ay.png')")
         .info
           .name Asher Young
-          .title Curator
-      .member
-        .image(style="background-image: url('/assets/pb.jpg')")
-        .info
-          .name Paul Bloom
           .title Curator
       - members = [['Frank Boudon', '/assets/Frank.JPG', 'Speakers'], ['Evie Cai', '/assets/ec.png', 'Events'], ['Tracy Chung', '/assets/Tracy.jpg', 'Speakers'], ['Zachary Cohen', '/assets/zc.png', 'Finance'], ['Patrick Demkowicz', '/assets/pd.png', 'Speakers'], ['Ale Estrada', '/assets/ale.png', 'Speakers'], ['Chunyang Ding', '/assets/Chunny.JPG', 'Finance'], ['Dan Gorodezky', '/assets/Dan.jpg', 'Marketing'], ['Irene Jiang', '/assets/ij.png', 'Speakers'], ['Shea Ketsdever', '/assets/Shea.png', 'Speakers'], ['Elizabeth Liu', '/assets/Elizabeth.jpg', 'Finance'], ['Claudia Mezey', '/assets/Claudia.jpg', 'Marketing'], ['Alexander Mutuc', '/assets/Alex.jpg' ,'Events'], ['Ashesh Trivedi', '/assets/at.jpg', 'Events'], ['Olivier van Donselaar', '/assets/ov.jpg', 'Marketing'], ['Annique Wong', '/assets/Annique.jpg', 'Finance'], ['Rebecca Yan', '/assets/Rebecca.jpeg','Marketing'], ['Jinchen Zhou', '/assets/jz.png', 'Speakers']]
       -members.each do |m|
