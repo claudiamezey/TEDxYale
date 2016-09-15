@@ -1,6 +1,6 @@
 class Speaker < ActiveRecord::Base
-    
-  has_attached_file :thumbnail, 
+
+  has_attached_file :thumbnail,
     :styles => { :small => "100x100#", :large => "500x"},
     :storage => :s3,
         :s3_credentials => {
@@ -8,13 +8,14 @@ class Speaker < ActiveRecord::Base
           :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'],
           :bucket => ENV['S3_BUCKET_NAME']
         }
-  
+
   attr_accessible :name, :email, :thumbnail, :event_id, :short_bio
   attr_accessor :password, :password_confirmation
 
-  before_create :generate_password   
+  before_create :generate_password
 
-  validates_presence_of :name  
+  validates_presence_of :name
+  validates_attachment_content_type :thumbnail, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   belongs_to :event
   belongs_to :list
@@ -23,12 +24,12 @@ class Speaker < ActiveRecord::Base
     unless self.password
       self.password = (0...8).map{65.+(rand(26)).chr}.join
     end
-    if password.present?  
-  		self.password_salt = BCrypt::Engine.generate_salt  
-  		self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)  
+    if password.present?
+  		self.password_salt = BCrypt::Engine.generate_salt
+  		self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
   	end
   end
-  
+
   def self.authenticate(email, password)
     user = find_by_email(email)
     if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
@@ -37,7 +38,7 @@ class Speaker < ActiveRecord::Base
       nil
     end
   end
-  
+
   def questionnaire
     if self.coming_from && !self.coming_from.empty? && self.transportation && !self.transportation.empty? && self.arrival && !self.arrival.empty? && self.housing && !self.housing.empty? && self.post_event && !self.post_event.empty? && self.diet && !self.diet.empty? && self.guest && !self.guest.empty? && self.status && !self.status.empty? && self.scheduling && !self.scheduling.empty?
       return true
@@ -45,7 +46,7 @@ class Speaker < ActiveRecord::Base
       nil
     end
   end
-  
+
   def status_percentage
     tasks = Array.new
     tasks << (self.coming_from && !self.coming_from.empty? ? 1 : 0)
@@ -67,18 +68,18 @@ class Speaker < ActiveRecord::Base
     complete = tasks.sum * 100
     return (complete / length).to_s + "%"
   end
-  
+
   def as_json(options = {})
     {
       "id" => id,
       "name" => name,
       "public" => public,
       "thumbnail" => thumbnail.url(:large) != "/thumbnails/large/missing.png" ? thumbnail.url(:large) : "",
-      "bio" => short_bio, 
+      "bio" => short_bio,
       "twitter" => twitter,
       "talk" => talk_title,
       "crop" => crop
     }
   end
-  
+
 end
