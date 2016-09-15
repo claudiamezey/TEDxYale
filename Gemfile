@@ -44,10 +44,10 @@ gem "heroku"
 gem 'thin'
 
 #Paperclip
-gem "paperclip"
+gem 'paperclip', :git=> 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
 
 #Amazon S3
-# gem 'aws-s3'
+gem 'aws-s3'
 gem 'aws-sdk'
 
 #Backbone
