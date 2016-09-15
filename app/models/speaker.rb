@@ -1,4 +1,6 @@
 class Speaker < ActiveRecord::Base
+  require 'aws-sdk-v1'
+  require 'aws-sdk'
 
   has_attached_file :thumbnail,
     :styles => { :small => "100x100#", :large => "500x"},
