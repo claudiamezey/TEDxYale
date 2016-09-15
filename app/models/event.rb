@@ -1,7 +1,4 @@
 class Event < ActiveRecord::Base
-  require 'aws-sdk-v1'
-  require 'aws-sdk'
-
   attr_accessible :name, :location, :location_url, :image, :location_address,
                   :location_city, :location_state, :location_zipcode,
                   :published, :datetime, :sort, :paralink, :description, :header,
