@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
 
-  attr_accessible :name, :location, :location_url, :image, :location_address, 
-                  :location_city, :location_state, :location_zipcode, 
+  attr_accessible :name, :location, :location_url, :image, :location_address,
+                  :location_city, :location_state, :location_zipcode,
                   :published, :datetime, :sort, :paralink, :description, :header,
                   :thumbnail
 
@@ -10,8 +10,8 @@ class Event < ActiveRecord::Base
   has_many :speakers
   has_many :sponsorships
   has_many :sponsors, :through => :sponsorships
-  
-  has_attached_file :header, 
+
+  has_attached_file :header,
     :styles => { :large => "660x" },
     :storage => :s3,
         :s3_credentials => {
@@ -19,7 +19,7 @@ class Event < ActiveRecord::Base
           :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'],
           :bucket => ENV['S3_BUCKET_NAME']
         }
-  has_attached_file :thumbnail, 
+  has_attached_file :thumbnail,
     :styles => { :medium => "300x200#", :small => "150x100#"},
     :storage => :s3,
         :s3_credentials => {
@@ -27,4 +27,7 @@ class Event < ActiveRecord::Base
           :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'],
           :bucket => ENV['S3_BUCKET_NAME']
         }
+
+  validates_attachment_content_type :thumbnail, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+  validates_attachment_content_type :header, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 end
