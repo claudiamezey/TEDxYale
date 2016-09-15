@@ -48,7 +48,7 @@ gem "paperclip"
 
 #Amazon S3
 gem 'aws-s3'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 
 #Backbone
 gem "rails-backbone"
