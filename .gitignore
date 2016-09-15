@@ -16,3 +16,7 @@
 
 # Credentials
 /config/credentials.yml
+
+# Ignore .DS_Store files
+*/.DS_Store
+.DS_Store
