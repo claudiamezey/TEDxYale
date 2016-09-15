@@ -1,17 +1,17 @@
 class EventsController < ApplicationController
-  
+
   before_filter :require_login, :only => "new, create"
-  
+
   def require_login
     unless logged_in?
       redirect_to '/login' # halts request cycle
     end
   end
- 
+
   def logged_in?
     !!current_admin
   end
-  
+
   def root
     # diff = Time.parse(ENV['COMPETITION_END']) - Time.now
     #     @seconds_left = diff
@@ -29,7 +29,7 @@ class EventsController < ApplicationController
     #     ].join(":")
     # @speakers = Event.find_by(paralink: "2014").speakers.shuffle.first(18)
   end
-  
+
   def index
     @events = Event.where({ :published => true }).order("datetime DESC")
     @carousals = @events.limit(3).reverse
@@ -38,7 +38,7 @@ class EventsController < ApplicationController
     @past_events = @events.all(:conditions => ['datetime < ?', DateTime.now])
     @future_events = @events.all(:conditions => ['datetime > ?', DateTime.now])
   end
-  
+
   def show
     @event = Event.find(params[:id])
     if @event.paralink
@@ -51,7 +51,7 @@ class EventsController < ApplicationController
       @speakers = @event.speakers
     end
   end
-  
+
   def new
     @event = Event.new
     respond_to do |format|
@@ -59,7 +59,7 @@ class EventsController < ApplicationController
       format.json { render json: @event }
     end
   end
-  
+
   def create
     @event = Event.new(params[:event])
     respond_to do |format|
@@ -72,24 +72,24 @@ class EventsController < ApplicationController
       end
     end
   end
-  
+
   def edit
     @event = Event.find(params[:id])
     @users = @event.users
     @users_count = @users.count
     @speakers = @event.speakers
     @speaker = Speaker.new
-    
+
     @checked_in = Attendee.where({ :event_id => @event.id, :checked_in => true })
     @checked_in_users = @checked_in.map { |attendee| attendee.user }
     @checked_in_count = @checked_in_users.count
-    
+
     respond_to do |format|
       format.html
       format.json { render json: @checked_in_users }
     end
   end
-  
+
   def update
     @event = Event.find(params[:id])
 
@@ -103,28 +103,28 @@ class EventsController < ApplicationController
       end
     end
   end
-  
+
   def registration
     @event = Event.find(params[:id])
     @checked_out = Attendee.where({ :event_id => @event.id, :checked_in => false })
     @checked_out_users = @checked_out.map { |attendee| attendee.user }
-    
+
     respond_to do |format|
       format.html
       format.json { render json: @checked_out_users }
     end
-  end 
-  
+  end
+
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-    
+
     respond_to do |format|
       format.html { redirect_to "/admin/events", notice: @event.name + ' was deleted.' }
       format.json { head :no_content }
     end
   end
-  
+
   def publish
     @event = Event.find(params[:id])
     @event.update_attributes(:published => true)
@@ -133,7 +133,7 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   def unpublish
     @event = Event.find(params[:id])
     @event.update_attributes(:published => false)
@@ -142,20 +142,20 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   def conference
     @speakers = StudentSpeaker.all
   end
-  
+
   def conference_speakers
     event = Event.where(:paralink => params[:year]).first
     speakers = event.speakers.shuffle
     render json: speakers.as_json
   end
-  
+
   def current_salon
   end
-  
+
   def footnotes
     event = Event.where(paralink: "2014").first
     redirect_to root_url if !event
@@ -167,5 +167,11 @@ class EventsController < ApplicationController
     redirect_to root_url if !event
     @speakers = event.speakers.shuffle
   end
-  
+
+  def mind_the_gap
+    event = Event.where(paralink: "2016").first
+    redirect_to root_url if !event
+    # @speakers = event.speakers.shuffle
+  end
+
 end

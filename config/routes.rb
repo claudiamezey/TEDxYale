@@ -117,7 +117,8 @@ TEDxYale::Application.routes.draw do
   get "/2015", to: "events#moment_of_impact"
 
   # 2016
-  get "/2016", to: "applications#student_speaker_competition"
+  get "/2016", to: "events#mind_the_gap"
+  # get "/2016", to: "applications#student_speaker_competition"
   get "/student_speaker_competition", to: "applications#student_speaker_competition"
 
   # Facebook

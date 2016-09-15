@@ -1,0 +1,6 @@
+<script type="text/javascript">
+  $(function() {
+    window.router = new TEDxYale.Routers.MindTheGapRouter({speakers: <%= @speakers.to_json.html_safe %>});
+    Backbone.history.start();
+  });
+</script>
