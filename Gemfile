@@ -47,7 +47,7 @@ gem 'thin'
 gem "paperclip"
 
 #Amazon S3
-gem 'aws-s3'
+# gem 'aws-s3'
 gem 'aws-sdk'
 
 #Backbone
