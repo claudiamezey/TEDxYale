@@ -20,14 +20,14 @@
           .name Paul Bloom
           .title Curator
       .member
-        .image(style="background-image: url('/assets/ay.png')")
-        .info
-          .name Asher Young
-          .title Curator
-      .member
         .image(style="background-image: url('/assets/cj.png')")
         .info
           .name Caroline Jones
+          .title Curator
+      .member
+        .image(style="background-image: url('/assets/ay.png')")
+        .info
+          .name Asher Young
           .title Curator
       - members = [['Frank Boudon', '/assets/Frank.JPG', 'Speakers'], ['Evie Cai', '/assets/ec.png', 'Events'], ['Tracy Chung', '/assets/Tracy.jpg', 'Speakers'], ['Zachary Cohen', '/assets/zc.png', 'Finance'], ['Patrick Demkowicz', '/assets/pd.png', 'Speakers'], ['Ale Estrada', '/assets/ale.png', 'Speakers'], ['Chunyang Ding', '/assets/Chunny.JPG', 'Finance'], ['Dan Gorodezky', '/assets/Dan.jpg', 'Marketing'], ['Irene Jiang', '/assets/ij.png', 'Speakers'], ['Shea Ketsdever', '/assets/Shea.png', 'Speakers'], ['Elizabeth Liu', '/assets/Elizabeth.jpg', 'Finance'], ['Claudia Mezey', '/assets/Claudia.jpg', 'Marketing'], ['Alexander Mutuc', '/assets/Alex.jpg' ,'Events'], ['Ashesh Trivedi', '/assets/at.jpg', 'Events'], ['Olivier van Donselaar', '/assets/ov.jpg', 'Marketing'], ['Annique Wong', '/assets/Annique.jpg', 'Finance'], ['Rebecca Yan', '/assets/Rebecca.jpeg','Marketing'], ['Jinchen Zhou', '/assets/jz.png', 'Speakers']]
       -members.each do |m|
@@ -37,79 +37,6 @@
             .name= m[0]
             .title= m[2]
       %div(style='clear:both')
-    .section.advisors
-      %h4 Our Advisors
-      .member
-        .image
-          %img(src='/assets/mg.png')
-        .info
-          .name Miles Grimshaw
-          .title Former Curator
-          .twitter
-            %img(src='/assets/twitter.png')
-            %a(href='https://twitter.com/milesgrimshaw' target="_blank") @milesgrimshaw
-      .member
-        .image
-          %img(src='/assets/des.png')
-        .info
-          .name Diana Enriquez
-          .title Former Curator
-          .twitter
-            %img(src='/assets/twitter.png')
-            %a(href='https://twitter.com/denrsch' target="_blank") @denrsch
-      .member
-        .image
-          %img(src='/assets/gb.png')
-        .info
-          .name Grier Barnes
-          .title Former Curator
-          .twitter
-            %img(src='/assets/twitter.png')
-            %a(href='https://twitter.com/grierelizabeth' target="_blank") @grierelizabeth
-      .member
-        .image
-          %img(src='/assets/pfh.png')
-        .info
-          .name Paul Fletcher-Hill
-          .title Former Curator
-          .twitter
-            %img(src='/assets/twitter.png')
-            %a(href='https://twitter.com/pfletch1023' target="_blank") @pfletch1023
-      .member
-        .image
-          %img(src='/assets/aj.png')
-        .info
-          .name Austin Jaspers
-          .title Former Curator
-          .twitter
-            %img(src='/assets/twitter.png')
-            %a(href='https://twitter.com/AustinJaspers' target="_blank") @AustinJaspers
-      .member
-        .image(style="background-image: url('/assets/mt.png')")
-        .info
-          .name Mikayla Thompson
-          .title Former Curator
-          .twitter
-            %img(src='/assets/twitter.png')
-            %a(href='https://twitter.com/MikaylaRoseT' target="_blank") @MikaylaRoseT
-      .member
-        .image(style="background-image: url('/assets/ka.png')")
-        .info
-          .name Kimaya Abreu
-          .title Former Curator
-      .member
-        .image(style="background-image: url('/assets/fmc.png')")
-        .info
-          .name Feridun Mert Celebi
-          .title Former Curator
-          .twitter
-            %img(src='/assets/twitter.png')
-            %a(href='https://twitter.com/fmertcelebi' target="_blank") @fmertcelebi
-      %div(style='clear:both')
-    .section.partnership
-      %h4 Primary Sponsors
-      .partner
-        %img(src='/assets/gant.jpeg')
     .section.tedx
       %h4 About TEDx, x = independently organized event
       %p In the spirit of ideas worth spreading, TEDx is a program of local, self-organized events that bring people together to share a TED-like experience. At a TEDx event, TEDTalks video and live speakers combine to spark deep discussion and connection in a small group. These local, self-organized events are branded TEDx, where x = independently organized TED event. The TED Conference provides general guidance for the TEDx program, but individual TEDx events are self-organized. (Subject to certain rules and regulations.)
