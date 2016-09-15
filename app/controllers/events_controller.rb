@@ -171,7 +171,7 @@ class EventsController < ApplicationController
   def mind_the_gap
     event = Event.where(paralink: "2016").first
     redirect_to root_url if !event
-    # @speakers = event.speakers.shuffle
+    @speakers = event.speakers.try(:shuffle)
   end
 
 end
